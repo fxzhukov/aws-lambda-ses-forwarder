@@ -79,7 +79,7 @@ describe('index.js', function() {
     it('should allow overriding the From header in emails', function(done) {
       var data = {
         config: {
-          fromEmail: "noreply@example.com"
+          fromEmail: "@example.com"
         },
         email: {
           source: "betsy@example.com"

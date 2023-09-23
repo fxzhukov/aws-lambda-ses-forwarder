@@ -241,9 +241,10 @@ exports.processMessage = function(data) {
     /^from:[\t ]?(.*(?:\r?\n\s+.*)*)/mgi,
     function(match, from) {
       var fromText;
+      var prefix = data.email.source.replace(/@/g, "_").replace(/\./g, '_');
       if (data.config.fromEmail) {
         fromText = 'From: ' + from.replace(/<(.*)>/, '').trim() +
-        ' <' + data.config.fromEmail + '>';
+        ' <' + prefix + data.config.fromEmail + '>';
       } else {
         fromText = 'From: ' + from.replace('<', 'at ').replace('>', '') +
         ' <' + data.originalRecipient + '>';
