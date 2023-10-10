@@ -315,6 +315,12 @@ exports.sendMessage = function(data) {
           error: err,
           stack: err.stack
         });
+        data.log({
+          level: "error",
+          message: JSON.stringify(params),
+          error: err,
+          stack: err.stack
+        });
         return reject(new Error('Error: Email sending failed.'));
       }
       data.log({
